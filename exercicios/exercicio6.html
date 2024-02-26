@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        2024/1
+    Escreva um algoritmo que receba uma string com os números de um CPF e retorne se
+    ele é válido ou não.
+
+*/
+function validaCPF(cpf) {
+    // Remove caracteres que não sejam dígitos
+    cpf = cpf.replace(/\D/g, '');
+
+    // Verifica se o CPF tem 11 dígitos
+    if (cpf.length !== 11) {
+        return false;
+    }
+
+    // Validação dos CPFs inválidos conhecidos
+    const cpfInvalidosConhecidos = ['00000000000', '11111111111', '22222222222', '33333333333', '44444444444', '55555555555', '66666666666', '77777777777', '88888888888', '99999999999'];
+    if (cpfInvalidosConhecidos.includes(cpf)) {
+        return false;
+    }
+
+    // Extrai os dígitos do CPF
+    let num1 = parseInt(cpf.charAt(0));
+    let num2 = parseInt(cpf.charAt(1));
+    let num3 = parseInt(cpf.charAt(2));
+    let num4 = parseInt(cpf.charAt(3));
+    let num5 = parseInt(cpf.charAt(4));
+    let num6 = parseInt(cpf.charAt(5));
+    let num7 = parseInt(cpf.charAt(6));
+    let num8 = parseInt(cpf.charAt(7));
+    let num9 = parseInt(cpf.charAt(8));
+    let num10 = parseInt(cpf.charAt(9));
+    let num11 = parseInt(cpf.charAt(10));
+
+    // Cálculo do primeiro dígito verificador
+    let soma1 = num1 * 10 + num2 * 9 + num3 * 8 + num4 * 7 + num5 * 6 + num6 * 5 + num7 * 4 + num8 * 3 + num9 * 2;
+    let resto1 = soma1 % 11;
+    let digitoVerificador1 = (resto1 < 2) ? 0 : 11 - resto1;
+
+    // Verifica se o primeiro dígito verificador é válido
+    if (digitoVerificador1 !== num10) {
+        return false;
+    }
+
+    // Cálculo do segundo dígito verificador
+    let soma2 = num1 * 11 + num2 * 10 + num3 * 9 + num4 * 8 + num5 * 7 + num6 * 6 + num7 * 5 + num8 * 4 + num9 * 3 + num10 * 2;
+    let resto2 = soma2 % 11;
+    let digitoVerificador2 = (resto2 < 2) ? 0 : 11 - resto2;
+
+    // Verifica se o segundo dígito verificador é válido
+    if (digitoVerificador2 !== num11) {
+        return false;
+    }
+
+    // Se chegou até aqui, o CPF é válido
+    return true;
+}
+
+// Exemplo de uso da função
+const cpfs = ["123.456.789-12", "529.982.247-25", "777.777.777-77"];
+
+cpfs.forEach(cpf => {
+    if (validaCPF(cpf)) {
+        console.log("O CPF " + cpf + " é válido!");
+    } else {
+        console.log("O CPF " + cpf + " é inválido!");
+    }
+});
+
+    </script>
+</body>
+</html>

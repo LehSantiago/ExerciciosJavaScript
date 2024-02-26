@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 2</title>
+</head>
+<body>
+    <script>
+        /* 
+        Crie uma função que receba 6 números (3 notas e 3 pesos) e retorne a média ponderada
+dos mesmos.
+*/
+        function mediaPonderada(nota1, nota2, nota3, p1, p2, p3){
+            return(nota*p1 + nota2*p2 + nota3*p3)/(p1 + p2 + p3)
+        }
+
+        let resultado = mediaPonderada(7, 9, 10, 0.5, 0.3, 0.2)
+        console.log(resultado)
+    </script>
+    
+</body>
+</html>

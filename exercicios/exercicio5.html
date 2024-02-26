@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 5</title>
+</head>
+<body>
+    <script>
+    /*Faça um algoritmo que receba 3 strings e substitua na primeira, todas as ocorrências da
+    segunda pela terceira.
+    Exemplo:
+    Entrada: "Eu gosto de CSS”, “CSS”, “HTML"
+    Saída: “Eu gosto de HTML”*/
+
+    function substitui(string1, string2, troca) {
+    return string1.split(string2).join(troca);
+}
+
+var entrada1 = "Eu gosto de CSS";
+var entrada2 = "CSS";
+var entrada3 = "HTML";
+
+var saida = substitui(entrada1, entrada2, entrada3);
+console.log(saida); 
+
+</script>
+</body>
+</html>

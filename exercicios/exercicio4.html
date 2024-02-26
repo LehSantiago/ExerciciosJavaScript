@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 4</title>
+</head>
+<body>
+    <script>
+        /* 
+Crie um algoritmo que receba uma frase e a mostre na língua do P.
+Exemplo:
+Entrada: Eu gosto do Mackenzie
+Saída: PEu Pgosto Pd0 PMackenzie
+
+        */
+        function linguaP(frase) {
+    var palavras = frase.split(" ");
+    
+    var novaFrase = "";
+    
+    for (var i = 0; i < palavras.length; i++) {
+        novaFrase += "P" + palavras[i];
+        if (i !== palavras.length - 1) {
+            novaFrase += " ";
+        }
+    }
+    
+    return novaFrase; 
+}
+
+let entrada = "Eu gosto do Mackenzie";
+let saida = linguaP(entrada);
+console.log(saida); 
+
+    </script>
+</body>
+</html>
